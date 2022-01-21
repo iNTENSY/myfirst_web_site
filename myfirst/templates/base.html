@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang = "en">
+{% load static %}
+<head>
+	<meta charset = "UTF-8">
+	<title>{% block title %}Мой сайт{% endblock %}</title>
+	<link rel = "stylesheet" href = "{% static 'css/base.css' %}" />
+	<link rel = 'icon' href = "{% static 'img/welcome_sticker.png' %}">
+	<nav>
+		<ul>
+			<li><a href = "{% url 'articles:index' %}">Главная</a></li>
+			<li><a href = '#'>Цитаты</a></li>
+			<li><a href = '#'>Фото</a></li>
+			<li><a href = "#">Добавить статью</a></li>
+		</ul>
+	</nav>
+</head>
+<body>
+	{% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Мой Сайт{% endblock %}
+
+{% block content %}
+	{% if latest_articles_list %}
+		{% for a in latest_articles_list %}
+			<div class="post-wrap">
+			<div class="post-item">
+			<div class="post-item-wrap">
+			<a href = "{% url 'articles:detail' a.id %}" class="post-link">
+			<h3 class="post-title">{{ a.article_title }}</h3>
+			<p class="post-content">{{ a.article_text }}</p>
+			</a>
+			</div>
+			</div>
+			</div>
+		{% endfor %}
+	{% else %}
+				Статьи не найдены
+	{% endif %}
+{% endblock %}
