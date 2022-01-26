@@ -1,6 +1,5 @@
 body {
     margin:0;
-    background-color: linear-gradient(to bottom right, #EECFBA, #C5DDE8) no-repeat ;
 	min-height: 100%;
     min-width: 1024px;
     width: 100%;
@@ -67,6 +66,7 @@ ul li a:hover{
 .post-item-wrap {
     background: #F7F7F2;
     position: relative;
+    width: 200px;
 }
 .post-item-wrap:after {
     content: "";
@@ -106,7 +106,8 @@ ul li a:hover{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    line-height: 10px;
+    line-height: 20px;
+    width: 150px;
 }
 @media (min-width: 768px) {
     .post-item {

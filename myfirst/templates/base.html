@@ -4,18 +4,29 @@
 <head>
 	<meta charset = "UTF-8">
 	<title>{% block title %}Мой сайт{% endblock %}</title>
-	<link rel = "stylesheet" href = "{% static 'css/base.css' %}" />
+	<link rel = "stylesheet" href = "{% static 'css/base.css' %}" >
+	<link rel = "stylesheet" href = "{% static 'css/header.css' %}" >
 	<link rel = 'icon' href = "{% static 'img/welcome_sticker.png' %}">
-	<nav>
-		<ul>
-			<li><a href = "{% url 'articles:index' %}">Главная</a></li>
-			<li><a href = '#'>Цитаты</a></li>
-			<li><a href = '#'>Фото</a></li>
-			<li><a href = "#">Добавить статью</a></li>
-		</ul>
-	</nav>
 </head>
 <body>
-	{% block content %}{% endblock %}
+	<div id = "wrapper">
+	<!-- Logo and Auth.System -->
+		<div id = 'header'>
+			<img src ="{% static 'img/welcome_sticker.png' %}" width="10%">
+		</div>
+		<!-- Main menu -->
+		<div id = "top" ><nav>
+			<ul>
+				<li><a href = "{% url 'articles:index' %}">Главная</a></li>
+				<li><a href = '#'>Цитаты</a></li>
+				<li><a href = '#'>Фото</a></li>
+				<li><a href = "{% url 'articles:add_article' %}">Добавить статью</a></li>
+			</ul>
+		</nav></div>
+		<!-- Content -->
+		<div id = "content">
+			{% block content %}{% endblock %}
+		</div>
+	</div>
 </body>
 </html>

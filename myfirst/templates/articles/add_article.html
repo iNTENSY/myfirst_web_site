@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action = "{% url 'articles:add_article' %}" method="POST">
+        {% csrf_token %}
+        <input type = 'text' required placeholder="Название поста" name = 'article_title'><br>
+        <textarea name = 'article_text' required ='' placeholder="Текст поста" cols = '30' row = '10'></textarea><br>
+        <button type = 'submit'>Оставить комментарий</button></p>
+    </form>
+{% endblock %}

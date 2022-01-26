@@ -2,6 +2,7 @@ from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
 from .models import Article
 from django.urls import reverse
+from django.utils import timezone
 
 def index(request):
     latest_articles_list = Article.objects.order_by('-pub_date')
@@ -27,3 +28,16 @@ def leave_comment(request, article_id):
 
     return HttpResponseRedirect( reverse('articles:detail', args = (a.id,)) )
 
+def add_article(request):
+    if request.method == 'POST':
+        article_title = request.POST['article_title']
+        article_text = request.POST['article_text']
+        a = Article()
+        a.article_title = article_title
+        a.article_text = article_text
+        a.pub_date = timezone.now()
+        a.save()
+    context = {
+
+    }
+    return render(request, 'articles/add_article.html', context)
